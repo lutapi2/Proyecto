@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de cuentas bancarias</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestioncuentasbancarias.js"></script>
+</head>
+
+<body id="body">
+
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <h1 class="tituloRequisito">Gestion de Cuentas bancarias</h1>
+        <div class="contenedorFormulario">
+            <label for="">Numero de cuenta</label>
+            <input id="numeroDeCuenta" type="text">
+            <label for="">Nombre del banco</label>
+            <select class="seleccionTipo" name="" id="nombreDeBanco">
+                <option value="BBVA">BBVA</option>
+                <option value="Bancolombia">Bancolombia</option>
+                <option value="BBVA">Davivienda</option>
+                <option value="Bancolombia">Nequi</option>
+            </select>
+            <label for="">Tipo cuenta</label>
+            <select class="seleccionTipo" name="" id="tipoDeCuenta">
+                <option value="Corriente">Corriente</option>
+                <option value="Ahorro">Ahorro</option>
+                <option value="Inversion">Inversion</option>
+            </select>
+            <label for="">Saldo actual</label>
+            <input type="number" id="saldoActual">
+            <label for="">Estado de cuenta</label>
+            <select class="seleccionTipo" name="" id="estadoDeCuenta">
+                <option value="Activa">Activa</option>
+                <option value="Inactiva">Inactiva</option>
+            </select>
+            <label for="">Fecha de apertura</label>
+            <input type="date" name="" id="fechaApertura">
+            <label for="">Descripción</label>
+            <textarea class="descripcionTipos" name="" id="descripcionCuenta"></textarea>
+
+            <button onclick="guardarCuentaBancaria()">Agregar cuenta bancaria</button>
+            <button onclick="consultarCuenta()">Buscar</button>
+            <button onclick="actualizarCuenta()">Actualizar</button>
+        </div>
+
+        <h2 class="tituloRequisito">Cuentas bancarias</h2>
+
+        <div class="contenedorTablaTipo">
+            <table id="tablaCuentasBancarias" border="1">
+                <tbody>
+                    <tr>
+                        <td># cuenta</td>
+                        <td>Nombre del banco</td>
+                        <td>Tipo cuenta</td>
+                        <td>Saldo actual</td>
+                        <td>Estado de cuenta</td>
+                        <td>Fecha de apertura</td>
+                        <td>Descripcion</td>
+                        <td>Acciones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Contacta con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        listarCuentasBancarias()
+        
+    </script>
+    
+
+</body>
+
+</html>

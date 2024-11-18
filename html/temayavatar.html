@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temas y avatar</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <script>
+        function modificarBotonOscuro() {
+            var body = document.getElementById("body")
+            body.setAttribute("class", "modoOscuro");
+        }
+    </script>
+</head>
+<body id="body">
+    
+    <div>
+
+        <div class="contenedorTemaAvatar">
+            <div class="contenedorTemas">
+                <h2>Temas:</h2>
+                <button class="botonOscuro" onclick="modificarBotonOscuro()">Oscuro</button>
+                <button class="botonClaro">Claro</button>
+            </div>
+            
+            <div>
+                <h2>Avatar</h2>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Contacte con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

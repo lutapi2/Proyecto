@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertas</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionalertas.js"></script>
+</head>
+<body id="body">
+    
+    
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <h1 class="tituloRequisito">Alertas</h1>
+        <div class="contenedorFormulario">
+            <label for="">Tipo de alerta</label>
+            <input id="tipoAlerta" type="text">
+            <label for="">Fecha y hora de alerta</label>
+            <input type="datetime-local" id="fechayHoraAlerta">
+            <label for="">Descripción de alerta</label>
+            <textarea class="descripcionTipos" name="" id="descripcionAlerta"></textarea>
+
+            <button onclick="guardarAlerta()">Agregar Alerta</button>
+            <button onclick="consultarAlerta()">Buscar por fecha</button>
+            <button onclick="actualizarAlerta()">Actualizar</button>
+        </div>
+
+        <h2 class="tituloRequisito">Alertas configuradas</h2>
+        
+        <div class="contenedorTablaTipo">
+            <table id="tablaAlertas" border="1">
+                <tbody>
+                    <tr>
+                        <td>Tipo de alerta</td>
+                        <td>Fecha y hora</td>
+                        <td>Descripcion</td>
+                        <td>Acciones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p> Contacta con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        listarAlertas()
+    </script>
+    <audio id="alarmSound" src="../recursos/imagenes/ringtones-pato-donald.mp3" preload="auto"></audio>
+
+    <script>
+
+        // Function to check and trigger alarms
+        function verificarAlarmas() {
+            const alarmas = JSON.parse(localStorage.getItem("alertas") || "[]");
+            const now = new Date();
+
+            alarmas.forEach((alarma, index) => {
+                const alarmDateTime = new Date(alarma.dateTime);
+                if (now >= alarmDateTime) {
+                    const alarmSound = document.getElementById('alarmSound');
+                    alarmSound.play();
+                    // Remove the alarm from the list once it has triggered
+                    alarmas.splice(index, 1);
+                    localStorage.setItem("alertas", JSON.stringify(alarmas));
+                }
+            });
+        }
+
+
+        // Set an interval to check alarms every minute
+        setInterval(verificarAlarmas, 60000);
+    </script>
+
+</body>
+</html>

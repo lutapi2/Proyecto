@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionTransacciones.js"></script>
+    <style>
+        .contenedorGrafica {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .chart-container {
+            width: 45%;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="body">
+    
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <div class="contenedorGrafica">
+            <div class="chart-container">
+                <h2>Ingresos</h2>
+                <canvas id="ingresosChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Egresos</h2>
+                <canvas id="egresosChart"></canvas>
+            </div>
+        
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                function getTransacciones() {
+                    return JSON.parse(localStorage.getItem('transacciones')) || [];
+                }
+        
+                function filtrarTransaccionesPorMes(transacciones, mes, tipo) {
+                    return transacciones
+                        .filter(t => new Date(t.fechaTransaccion).getMonth() + 1 === mes && t.tipoIngresoEgreso === tipo)
+                        .reduce((total, t) => total + parseFloat(t.valor), 0);
+                }
+        
+                function obtenerDatos() {
+                    const transacciones = getTransacciones();
+                    const ingresosAbril = filtrarTransaccionesPorMes(transacciones, 4, 'ingreso');
+                    const ingresosMayo = filtrarTransaccionesPorMes(transacciones, 5, 'ingreso');
+                    const egresosAbril = filtrarTransaccionesPorMes(transacciones, 4, 'egreso');
+                    const egresosMayo = filtrarTransaccionesPorMes(transacciones, 5, 'egreso');
+                    
+                    return {
+                        ingresos: [ingresosAbril, ingresosMayo],
+                        egresos: [egresosAbril, egresosMayo]
+                    };
+                }
+        
+                function crearGrafica(ctx, label, data) {
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Abril', 'Mayo'],
+                            datasets: [{
+                                label: label,
+                                data: data,
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+        
+                document.addEventListener('DOMContentLoaded', function () {
+                    const datos = obtenerDatos();
+                    const ctxIngresos = document.getElementById('ingresosChart').getContext('2d');
+                    const ctxEgresos = document.getElementById('egresosChart').getContext('2d');
+                    
+                    crearGrafica(ctxIngresos, 'Dinero', datos.ingresos);
+                    crearGrafica(ctxEgresos, 'Dinero', datos.egresos);
+                });
+            </script>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Contacta con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

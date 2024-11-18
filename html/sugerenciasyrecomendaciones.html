@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugerencias y recomendaciones</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionRecomendacion.js"></script>
+</head>
+<body id="body">
+    
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <h1 class="tituloRequisito">Sugerencias y recomendaciones</h1>
+        <div class="contenedorFormulario">
+            <label for="">Nombre de usuario</label>
+            <input id="nombreUsuario" type="text">
+            <label for="">correo electronico</label>
+            <input id="correoElectronico" type="text">
+            <label for="">Asunto</label>
+            <input id="asunto" type="text">
+            <label for="">Contenido</label>
+            <input id="contenido" type="text">
+            <label for="">Fecha y hora de mensaje</label>
+            <input type="datetime-local" id="fechayHoraMensaje">
+
+            <button style="height: 30px;" onclick="guardarRecomendacion()">Enviar recomendacion</button>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Contactate con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    </script>
+
+</body>
+</html>

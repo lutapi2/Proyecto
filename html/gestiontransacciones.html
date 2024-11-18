@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transacciones</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionTransacciones.js"></script>
+    <script src="../js/gestioncuentasbancarias.js"></script>
+    <script src="../js/gestionTiposIngresosyEgresos.js"></script>
+</head>
+
+<body id="body">
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <h1 class="tituloRequisito">Transacciones</h1>
+        <div class="contenedorFormulario">
+            <label for="">Tipo de transaccion</label>
+            <select class="seleccionTipo" name="" id="tipoDeTransaccion">
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Egreso</option>
+            </select>
+            <label for="">Tipo de ingreso o egreso</label>
+            <select class="seleccionTipo" name="" id="tipoIngresoEgreso">
+                <option value="">Seleccione un tipo de ingreso o egreso</option>
+            </select>
+
+            <label for="">Valor</label>
+            <input id="valor" type="text">
+
+            <label for="">Cuenta bancaria</label>
+            <select class="seleccionTipo" name="" id="cuentaBancaria">
+                <option value="">Seleccione una cuenta</option>
+            </select>
+
+            <label for="">Fecha de transaccion</label>
+            <input type="datetime-local" name="" id="fechaTransaccion">
+
+            <label for="">Descripcion</label>
+            <textarea class="descripcionTipos" name="" id="descripcionTransaccion"></textarea>
+            <label for="">Adjuntar</label>
+            <input type="file" name="" id="adjuntar">
+           
+            <button onclick="guardarTransaccion()">Realizar transaccion</button>
+            <!-- <button onclick="consultarTransaccion()">Buscar</button> -->
+
+        </div>
+
+        <h2 class="tituloRequisito">Historial de transacciones</h2>
+
+        <div class="contenedorTablaTipo">
+            <table id="tablaTransacciones" border="1">
+                <tbody>
+                    <tr>
+                        <td>Tipo transaccion</td>
+                        <td>Tipo ingreso / egreso</td>
+                        <td>Valor</td>
+                        <td>Cuenta bancaria</td>
+                        <td>fecha de transaccion</td>
+                        <td>Descripcion</td>
+                        <td>Adjunto</td>
+                        <td>Acciones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Contacta con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        listarTransacciones()
+    </script>
+    <script src="../js/utilidades.js"></script>
+
+</body>
+
+</html>

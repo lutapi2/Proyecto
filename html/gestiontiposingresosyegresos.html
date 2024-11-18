@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Tipos de ingresos y egresos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionTiposIngresosyEgresos.js"></script>
+
+</head>
+<body id="body">
+    
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <h1 class="tituloRequisito">Gestion de Tipos de ingresos y egresos</h1>
+        <div class="contenedorFormulario">
+            <label for="">Codigo</label>
+            <input id="codigo" type="text">
+            <label for="">Nombre de tipo</label>
+            <input id="nombreDeTipo" type="text">
+            <label for="">Descripción</label>
+            <textarea class="descripcionTipos" name="" id="descripcion"></textarea>
+            <label for="">Tipo</label>
+            <select class="seleccionTipo" name="" id="tipo">
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Egreso</option>
+            </select>
+            <label for="">Categoria</label>
+            <input type="text" id="categoria">
+
+            <button onclick="guardarTipo()">Agregar tipo</button>
+            <button onclick="consultarTipo()">Buscar</button>
+            <button onclick="actualizarTipo()">Actualizar</button>
+
+        </div>
+
+        <h2 class="tituloRequisito">Tipos agregados</h2>
+        
+        <div class="contenedorTablaTipo">
+            <table id="tiposDeIngresoyEgreso" border="1">
+                <tbody>
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Nombre de tipo</td>
+                        <td>Descripcion</td>
+                        <td>Tipo</td>
+                        <td>Categoria</td>
+                        <td>Acciones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Contacta con nosotros</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>© 2024 FinanSoft. Todos los derechos reservados</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        listarTipo()
+    </script>
+
+</body>
+</html>
